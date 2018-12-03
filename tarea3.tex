@@ -96,11 +96,12 @@
 
         % Ejercicio 4
         \item {
-           Calcular $\int_{C} \mathbf{F} \cdot d \mathbf{l}$
+           Calcular $\displaystyle\int_{C} \mathbf{F} \cdot d \mathbf{l}$
 
             \begin{enumerate}
             \item{
-				$\mathbf{F} (x,y,z) = (\sin x,\cos y,xz)$ y la parametrización $\sigma (t) = (t^3,-t^2,t)$ con $0\leq t\leq 1$
+                $\mathbf{F} (x,y,z) = (\sin x,\cos y,xz)$ y la parametrización
+                $\sigma (t) = (t^3,-t^2,t)$ con $0\leq t\leq 1$
                 \color{azul}
                 % Respuesta
                 \begin{align*}
@@ -119,18 +120,23 @@
                 \end{align*}
             }
             \item{
-            	$\mathbf{F} (x,y) = (x-y,xy)$ y $C$ el arco de círculo $x^2 + y^2 = 4$ que se recorre en sentido antihorario de $(2,0)$ a $(0,-2)$
+                $\mathbf{F} (x,y) = (x-y,xy)$ y $C$ el arco de círculo
+                $x^2 + y^2 = 4$ que se recorre en sentido antihorario de $(2,0)$
+                a $(0,-2)$
 
                 \color{azul}
                 % Respuesta
-                Primero demos una parametrización adecuada para $C=\vec{\sigma}(t)$, tomando en cuenta que se trata de una circunferencia con centro en el origen del plano y de radio $r=\sqrt{4}=2$.
+                Primero demos una parametrización adecuada para $C=\vec{\sigma}
+                (t)$, tomando en cuenta que se trata de una circunferencia con
+                centro en el origen del plano y de radio $r=\sqrt{4}=2$.
 
                 Se podría utilizar la siguiente parametrización
                 \[
                     \vec{\sigma}_1(t)=(2\cos{t}, 2\sen{t});\hspace{10pt}
                     \frac{3\pi}{2}\leq t\leq 2\pi
                 \]
-                pero los límites de la integral se volverían complicados, por lo que podemos ajustar la parametrización a la siguiente
+                pero los límites de la integral se volverían complicados, por
+                lo que podemos ajustar la parametrización a la siguiente
                 \[
                     \vec{\sigma}(t)=(2\sen{t},-2\cos{t}); \hspace{10pt}
                     0\leq t\leq\frac{\pi}{2}
@@ -171,24 +177,112 @@
 
         % Ejercicio 5
         \item {
-            Calcular $\iint_{S} f dS$
+            Calcular $\displaystyle\iint_{S} f dS$
 
             \begin{enumerate}
             \item{
-				$f(x,y,z) = x^2y + z^2$ y $S$ la parte del cilindro $x^2 + y^2 = 9$ que está entre los planos $z=0$ y $z=2$
+                $f(x,y,z) = x^2y + z^2$ y $S$ la parte del cilindro
+                $x^2 + y^2 = 9$ que está entre los planos $z=0$ y $z=2$
 
-			\color{azul}
-            % Respuesta
+                \color{azul}
+                % Respuesta
+                La proyección de $S$ sobre el plano $xz$ es un rectángulo con
+                $x\in [-3,3]$ y $z\in [0,2]$ como se muestra en la figura
+                \begin{center}
+                    \includegraphics[width=6cm]{img/5a.png}
+                \end{center}
+                Escribimos la ecuación para $y=g(x,z)=\sqrt{9-x^2}$, entonces
+                $\displaystyle g_x(x,z)=\frac{x}{\sqrt{9-x^2}}$ y
+                $\displaystyle g_z(x,z)=0$
 
-
+                Aplicando el teorema para convertir la integral de superficie
+                en una integral doble
+                \[
+                    \displaystyle \iint_{S}{f(x,y,z)\,dS}
+                    =\iint_{D}{
+                        f(x,g(x,z), z)
+                        \sqrt{\left[g_x(x,z)\right]^2+\left[g_z(x,z)\right]^2+1}
+                    \,dA}
+                \]
+                Entonces tendremos que
+                \begin{align*}
+                    \iint_{S}{f(x,y,z)\,dS}
+                    &= \iint_{D}{\left(
+                        x^2 \sqrt{9-x^2}+z^2
+                    \right)
+                    \sqrt{
+                        \frac{x^2}{9-x^2}+1
+                    }
+                    \,dA}\\[.3cm]
+                    &= \int_{-3}^{3}{
+                        \int_{0}^{2}{
+                            \left(
+                                3x^2+\frac{3z^2}{\sqrt{9-x^2}}
+                            \right)
+                        \,dz}
+                    \,dx}\\[.3cm]
+                    &= \int_{-3}^{3}{
+                        \left[
+                            3x^2z+\frac{z^3}{\sqrt{9-x^2}}
+                        \right]_{0}^{2}
+                    \,dx}\\[.3cm]
+                    &= \int_{-3}^{3}{
+                        \left(
+                            6x^2+\frac{8}{\sqrt{9-x^2}}
+                        \right)
+                    \,dx}\\[.3cm]
+                    &= \left[
+                        2x^3+8\sen^{-1}{\left(\frac{x}{3}\right)}
+                    \right]_{-3}^{3}\\
+                    &= 108 + 8\pi
+                \end{align*}
             }
 
             \item{
-            	$f(x,y,z) = x^2yz$ y $S$ la parte del plano $z = 1 + 2x + 3y$ que está arriba del rectángulo $[0,3] \times [0,2]$
+                $f(x,y,z) = x^2yz$ y $S$ la parte del plano $z = 1 + 2x + 3y$
+                que está arriba del rectángulo $[0,3] \times [0,2]$
 
-           \color{azul}
-            % Respuesta
+                \color{azul}
+                % Respuesta
+                Se entiende que la región $D = [0,3] \times [0,2]$, es la
+                proyección acotada del plano $S$ sobre el plano $xy$, o sea que
+                $x\in[0,3]$ e $y\in[0,2]$.
 
+                Sea $z=g(x,y)$, entonces $g_x(x,y)=2$ y $g_y(x,y)=3$. Ahora
+                aplicamos el teorema
+                \begin{align*}
+                    \iint_{S}{f(x,y,z)\,dS}
+                    &= \iint_{D}{
+                        f(x,y,g(x,y))
+                        \sqrt{
+                            \left[g_x(x,y)\right]^2+\left[g_y(x,y)\right]^2+1
+                        }\,dA}\\[.2cm]
+                    &= \int_{0}^{2}{
+                        \int_{0}^{3}{
+                            x^2y\left(1+2x+3y\right)
+                            \sqrt{4+9+1}
+                        \,dx}
+                    \,dy}\\[.2cm]
+                    &= \sqrt{14}\int_{0}^{2}{
+                        \int_{0}^{3}{
+                            \left(x^2y+2x^3y+3x^2y^2\right)
+                        \,dx}
+                    \,dy}\\[.2cm]
+                    &= \sqrt{14}\int_{0}^{2}{
+                        \left[
+                            \frac{x^3y}{3}+\frac{x^4y}{2}+x^3y^2
+                        \right]_{0}^{3}
+                        \,dy}\\[.2cm]
+                    &= \sqrt{14}\int_{0}^{2}{
+                        \left(
+                            9y+\frac{81}{2}y+27y^2
+                        \right)
+                    \,dy}\\[.2cm]
+                    &=\sqrt{14}\left[
+                        \frac{99}{4}y^2+9y^3
+                    \right]_0^2\\
+                    &= 71\sqrt{14}
+                \end{align*}
             }
             \end{enumerate}
 
@@ -197,11 +291,13 @@
 
         % Ejercicio 6
         \item {
-           Calcular $\iint_{S} \mathbf{F} \cdot d \mathbf{S}$
+           Calcular $\displaystyle\iint_{S} \mathbf{F} \cdot d \mathbf{S}$
 
             \begin{enumerate}
             \item{
-				$\mathbf{F} (x,y,z) = (0,y,-z)$ y $S$ consiste en el paraoloide $y = x^2 + z^2$, $0 \leq y \leq 1$, y el disco $x^2 + z^2 \leq 1$, $y = 1$
+                $\mathbf{F} (x,y,z) = (0,y,-z)$ y $S$ consiste en el paraoloide
+                $y = x^2 + z^2$, $0 \leq y \leq 1$, y el disco
+                $x^2 + z^2 \leq 1$, $y = 1$
 
 			\color{azul}
             % Respuesta
@@ -223,7 +319,7 @@
 
         % Ejercicio 7
         \item {
-            Usar el teorema de Stokes para evaluar $\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S}$, donde $\mathbf{F}(x,y,z) =(x^2y^3z,\sin(xyz),xyz)$ y $S$ es la parte del cono $y^2 = x^2 + z^2$ que está entre los planos $y = 0$ y $y = 3$ orientada en dirección positiva del eje Y.
+            Usar el teorema de Stokes para evaluar $\displaystyle\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S}$, donde $\mathbf{F}(x,y,z) =(x^2y^3z,\sin(xyz),xyz)$ y $S$ es la parte del cono $y^2 = x^2 + z^2$ que está entre los planos $y = 0$ y $y = 3$ orientada en dirección positiva del eje Y.
 
             \color{azul}
             % Respuesta
@@ -232,7 +328,7 @@
 
         % Ejercicio 8
         \item {
-            Usar el teorema de Gauss para evaluar $\iint_{S} \mathbf{F} \cdot d\mathbf{S}$, con $\mathbf{F}(x,y,z) = (x^3y,-x^2y^2,-x^2yz)$ y $S$ la superficie cerrada definida por el hiperboloide $x^2 + y^2 - z^2 = 1$ y los planos $z = -2$ y $z = 2$
+            Usar el teorema de Gauss para evaluar $\displaystyle\iint_{S} \mathbf{F} \cdot d\mathbf{S}$, con $\mathbf{F}(x,y,z) = (x^3y,-x^2y^2,-x^2yz)$ y $S$ la superficie cerrada definida por el hiperboloide $x^2 + y^2 - z^2 = 1$ y los planos $z = -2$ y $z = 2$
 
             \color{azul}
             % Respuesta
