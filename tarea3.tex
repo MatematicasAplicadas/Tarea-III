@@ -27,147 +27,483 @@
         % Ejercicio 1
         \item {
             Demostrar que
-            
+
             \begin{enumerate}
             \item{
-				$\nabla \times (f \mathbf{F}) = f \nabla \times \mathbf{F} + \nabla f \times \mathbf{F}$
-				
-			\color{azul}
+                $\nabla \times (f \mathbf{F}) =
+                f \nabla \times \mathbf{F} + \nabla f \times \mathbf{F}$\\
+                \color{azul}
             % Respuesta
-           
+                    Digamos que $\mathbf{F} = (f_1, f_2, f_3)$\\
+                    Primero notemos que
+                    \[\nabla \times \mathbf{F} =
+                    \begin{bmatrix}
+                        \hat{\imath} & \hat{\jmath} & \hat{k} \\
+                        \frac{\partial}{\partial x} & \frac{\partial}{\partial y}
+                         & \frac{\partial}{\partial z} \\
+                         f_1 & f_2 & f_3
+                    \end{bmatrix} =
+                    (
+                    \frac{\partial f_3}{\partial y}
+                    - \frac{\partial f_2}{\partial z},
+                    -\frac{\partial f_3}{\partial x}
+                    +\frac{\partial f_1}{\partial z},
+                    \frac{\partial f_2}{\partial x}
+                    -\frac{\partial f_1}{\partial y}
+                    )
+                    \]
+                    Y también que, como $\nabla f =
+                    (\frac{\partial f}{\partial x},
+                    \frac{\partial f}{\partial y}
+                    \frac{\partial f}{\partial z})$
 
+                    \[\nabla f \times \mathbf{F}\ =
+                    \begin{bmatrix}
+                        \hat{\imath} & \hat{\jmath} & \hat{k} \\
+                        \frac{\partial f}{\partial x} &
+                        \frac{\partial f}{\partial y}
+                         & \frac{\partial f}{\partial z} \\
+                         f_1 & f_2 & f_3
+                    \end{bmatrix} =
+                    (
+                    f_3\frac{\partial f}{\partial y}
+                    -f_2\frac{\partial f}{\partial z},
+                    -f_3\frac{\partial f}{\partial x}
+                    +f_1\frac{\partial f}{\partial z},
+                    f_2\frac{\partial f}{\partial x}
+                    -f_1\frac{\partial f}{\partial y}
+                    )
+                    \]
+                    Entonces, como $f\mathbf{F} = f(f_1, f_2, f_3) =
+                    (ff_1, ff_2, ff_3)$
+                    \[
+                    \nabla \times (f \mathbf{F}) =
+                    \begin{bmatrix}
+                        \hat{\imath} & \hat{\jmath} & \hat{k} \\
+                        \frac{\partial}{\partial x} & \frac{\partial}{\partial y}
+                         & \frac{\partial}{\partial z} \\
+                         ff_1 & ff_2 & ff_3
+                    \end{bmatrix} =
+                    (
+                    \frac{\partial ff_3}{\partial y}
+                    - \frac{\partial ff_2}{\partial z},
+                    -\frac{\partial ff_3}{\partial x}
+                    +\frac{\partial ff_1}{\partial z},
+                    \frac{\partial ff_2}{\partial x}
+                    -\frac{\partial ff_1}{\partial y}
+                    )
+                    \]
+                    Y por la regla del producto
+                    \begin{align*}
+                        &=
+                        (
+                        f_3\frac{\partial f}{\partial y}
+                        +f\frac{\partial f_3}{\partial y}
+                        -f_2\frac{\partial f}{\partial z}
+                        -f\frac{\partial f_2}{\partial z},
+                        -f_3\frac{\partial f}{\partial x}
+                        -f\frac{\partial f_3}{\partial x}
+                        +f_1\frac{\partial f}{\partial z}
+                        +f\frac{\partial f_1}{\partial z},
+                        f_2\frac{\partial f}{\partial x}
+                        +f\frac{\partial f_2}{\partial x}
+                        -f_1\frac{\partial f}{\partial y}
+                        -f\frac{\partial f_1}{\partial y}
+                        )\\
+                        &=
+                        (
+                        f\frac{\partial f_3}{\partial y}
+                        -f\frac{\partial f_2}{\partial z},
+                        -f\frac{\partial f_3}{\partial x}
+                        +f\frac{\partial f_1}{\partial z},
+                        f\frac{\partial f_2}{\partial x}
+                        -f\frac{\partial f_1}{\partial y}
+                        )
+                        +
+                        (
+                        f_3\frac{\partial f}{\partial y}
+                        -f_2\frac{\partial f}{\partial z},
+                        -f_3\frac{\partial f}{\partial x}
+                        +f_1\frac{\partial f}{\partial z},
+                        f_2\frac{\partial f}{\partial x}
+                        -f_1\frac{\partial f}{\partial y}
+                        )\\
+                        &=f (
+                        \frac{\partial f_3}{\partial y}
+                        -\frac{\partial f_2}{\partial z},
+                        -\frac{\partial f_3}{\partial x}
+                        +\frac{\partial f_1}{\partial z},
+                        \frac{\partial f_2}{\partial x}
+                        -\frac{\partial f_1}{\partial y}
+                        )
+                        +
+                        (
+                        f_3\frac{\partial f}{\partial y}
+                        -f_2\frac{\partial f}{\partial z},
+                        -f_3\frac{\partial f}{\partial x}
+                        +f_1\frac{\partial f}{\partial z},
+                        f_2\frac{\partial f}{\partial x}
+                        -f_1\frac{\partial f}{\partial y}
+                        )
+                    \end{align*}
+                    Y por las dos igualdades notadas al inicio del ejericio,
+                    esto es
+                    \[ = f (\nabla \times \mathbf{F}) + \nabla f \times \mathbf{F}\]
             }
-            
+
             \item{
             	$\nabla \times (\nabla \times \mathbf{F}) = \nabla (\nabla \cdot \mathbf{F}) - \nabla^2 \mathbf{F}$
-           
+
            \color{azul}
             % Respuesta
-            
+                Por lo notado en el ejericio 1, tenemos que, con
+                $\mathbf{F}=(f_1, f_2, f_3)$
+                \[
+                \nabla \times \mathbf{F} =
+                (
+                \frac{\partial f_3}{\partial y}
+                - \frac{\partial f_2}{\partial z},
+                -\frac{\partial f_3}{\partial x}
+                +\frac{\partial f_1}{\partial z},
+                \frac{\partial f_2}{\partial x}
+                -\frac{\partial f_1}{\partial y}
+                )
+                \]
+                Por lo que
+                \begin{align*}
+                    \nabla \times (\nabla \times \mathbf{F})
+                    &= \nabla \times
+                    (
+                    \frac{\partial f_3}{\partial y}
+                    - \frac{\partial f_2}{\partial z},
+                    -\frac{\partial f_3}{\partial x}
+                    +\frac{\partial f_1}{\partial z},
+                    \frac{\partial f_2}{\partial x}
+                    -\frac{\partial f_1}{\partial y}
+                    )\\
+                    &=
+                    (
+                    \frac{\partial (\frac{\partial f_2}{\partial x}
+                    -\frac{\partial f_1}{\partial y})}{\partial y}
+                    - \frac{\partial (-\frac{\partial f_3}{\partial x}
+                    +\frac{\partial f_1}{\partial z})}{\partial z},
+                    -\frac{\partial (\frac{\partial f_2}{\partial x}
+                    -\frac{\partial f_1}{\partial y})}{\partial x}
+                    +\frac{\partial (\frac{\partial f_3}{\partial y}
+                    - \frac{\partial f_2}{\partial z})}{\partial z},
+                    \frac{\partial (-\frac{\partial f_3}{\partial x}
+                    +\frac{\partial f_1}{\partial z})}{\partial x}
+                    -\frac{\partial (\frac{\partial f_3}{\partial y}
+                    - \frac{\partial f_2}{\partial z})}{\partial y}
+                    )\\
+                    &=
+                    (
+                    \frac{\partial^2f_2}{\partial x \partial y}
+                    -\frac{\partial^2f_1}{\partial y^2}
+                    +\frac{\partial^2f_3}{\partial x \partial z}
+                    -\frac{\partial^2f_1}{\partial z^2},
+                    -\frac{\partial^2f_2}{\partial x^2}
+                    +\frac{\partial^2f_1}{\partial y \partial x}
+                    +\frac{\partial^2f_3}{\partial y \partial z}
+                    -\frac{\partial^2f_2}{\partial z^2},
+                    -\frac{\partial^2f_3}{\partial x^2}
+                    +\frac{\partial^2f_1}{\partial x \partial z}
+                    -\frac{\partial^2f_3}{\partial y^2}
+                    +\frac{\partial^2f_2}{\partial z \partial y}
+                    )\\
+                    &=
+                    (
+                    \frac{\partial^2f_2}{\partial x \partial y}
+                    +\frac{\partial^2f_3}{\partial x \partial z},
+                    +\frac{\partial^2f_1}{\partial y \partial x}
+                    +\frac{\partial^2f_3}{\partial y \partial z},
+                    +\frac{\partial^2f_1}{\partial x \partial z}
+                    +\frac{\partial^2f_2}{\partial z \partial y}
+                    )
+                    -
+                    (
+                    \frac{\partial^2f_1}{\partial y^2}
+                    +\frac{\partial^2f_1}{\partial z^2},
+                    \frac{\partial^2f_2}{\partial x^2}
+                    +\frac{\partial^2f_2}{\partial z^2},
+                    \frac{\partial^2f_3}{\partial x^2}
+                    +\frac{\partial^2f_3}{\partial y^2}
+                    )
+                \end{align*}
+                Y sumando y restando $(\frac{\partial f_1}{\partial x^2},
+                \frac{\partial f_2}{\partial y^2},
+                \frac{\partial f_3}{\partial z^2})$
+                \begin{align*}
+                    &=(
+                    \frac{\partial f_1}{\partial x^2}
+                    +\frac{\partial^2f_2}{\partial x \partial y}
+                    +\frac{\partial^2f_3}{\partial x \partial z},
+                    +\frac{\partial^2f_1}{\partial y \partial x}
+                    +\frac{\partial f_2}{\partial y^2}
+                    +\frac{\partial^2f_3}{\partial y \partial z},
+                    +\frac{\partial^2f_1}{\partial z \partial x}
+                    +\frac{\partial^2f_2}{\partial z \partial y}
+                    +\frac{\partial f_3}{\partial z^2}
+                    )\\
+                    &-
+                    (
+                    \frac{\partial f_1}{\partial x^2}
+                    +\frac{\partial^2f_1}{\partial y^2}
+                    +\frac{\partial^2f_1}{\partial z^2},
+                    \frac{\partial^2f_2}{\partial x^2}
+                    +\frac{\partial f_2}{\partial y^2}
+                    +\frac{\partial^2f_2}{\partial z^2},
+                    \frac{\partial^2f_3}{\partial x^2}
+                    +\frac{\partial^2f_3}{\partial y^2}
+                    +\frac{\partial f_3}{\partial z^2}
+                    )\\
+                    &=
+                    (\frac{\partial}{\partial x}(
+                    \frac{\partial f_1}{\partial x}
+                    +\frac{\partial f_2}{\partial y}
+                    +\frac{\partial f_3}{\partial z}
+                    ),
+                    \frac{\partial}{\partial y}(
+                    \frac{\partial f_1}{\partial x}
+                    +\frac{\partial f_2}{\partial y}
+                    +\frac{\partial f_3}{\partial z}
+                    ),
+                    \frac{\partial}{\partial z}(
+                    \frac{\partial f_1}{\partial x}
+                    +\frac{\partial f_2}{\partial y}
+                    +\frac{\partial f_3}{\partial z}
+                    )
+                    )
+                    -
+                    (\nabla^2 f_1, \nabla^2 f_2, \nabla^2 f_3)\\
+                    &=
+                    \nabla (\frac{\partial f_1}{\partial x}
+                    +\frac{\partial f_2}{\partial y}
+                    +\frac{\partial f_3}{\partial z})
+                    - (\nabla^2 f_1, \nabla^2 f_2, \nabla^2 f_3)\\
+                    &=\nabla(\nabla \cdot (f_1, f_2, f_3))
+                    -\nabla^2(f_1, f_2, f_3)\\
+                    &= \nabla(\nabla \cdot \mathbf{F})-\nabla^2 \mathbf{F}
+                \end{align*}
+
             }
-            \end{enumerate}                        
+            \end{enumerate}
 	    }
 
         % Ejercicio 2
         \item {
             Determinar el rotacional y la divergencia de los campos
-            
+
             \begin{enumerate}
             \item{
 				$\mathbf{F} (x,y,z) = (0,\cos xz,\sin xy)$
-				
+
 			\color{azul}
-            % Respuesta           
+            % Respuesta
+            Primero el rotacional
+            \begin{align*}
+                \nabla \times \mathbf{F}
+                &= (
+                \frac{\partial f_3}{\partial y}
+                - \frac{\partial f_2}{\partial z},
+                -\frac{\partial f_3}{\partial x}
+                +\frac{\partial f_1}{\partial z},
+                \frac{\partial f_2}{\partial x}
+                -\frac{\partial f_1}{\partial y}
+                )\\
+                &= (
+                \frac{\partial (\sin xy)}{\partial y}
+                - \frac{\partial (\cos xz)}{\partial z},
+                -\frac{\partial (\sin xy)}{\partial x}
+                +\frac{\partial (0)}{\partial z},
+                \frac{\partial (\cos xz)}{\partial x}
+                -\frac{\partial (0)}{\partial y}
+                )\\
+                &= (
+                x\cos xy + x \sin xy, -y\cos xy, -z\sin xz
+                )\\
+                &= (
+                x (\cos xy + \sin xy), -y\cos xy, -z\sin xz
+                )
+            \end{align*}
+            Ahora la divergencia
+            \begin{align*}
+                \nabla \cdot \mathbf{F} &= \frac{\partial f_1}{\partial x}
+                +\frac{\partial f_2}{\partial y}
+                +\frac{\partial f_3}{\partial z} \\
+                &= \frac{\partial (0)}{\partial x}
+                +\frac{\partial (\cos xz)}{\partial y}
+                +\frac{\partial (\sin xy)}{\partial z}\\
+                &= 0 + 0 + 0 = 0
+            \end{align*}
             }
-            
+
             \item{
-            	$\mathbf{F} (x,y,z) = (\frac{x}{x^2 + y^2 + z^2}, \frac{y}{x^2 + y^2 + z^2}, \frac{z}{x^2 + y^2 + z^2})$
-           
+                $\mathbf{F} (x,y,z) = (\frac{x}{x^2 + y^2 + z^2},
+                \frac{y}{x^2 + y^2 + z^2}, \frac{z}{x^2 + y^2 + z^2})$\\
            \color{azul}
             % Respuesta
-            
+            Notemos que todas las entradas del campo son de la forma
+            $f = \frac{u}{u^2+k^2+j^2}$, por lo que
+            \[
+             \frac{\partial f}{\partial j \partial k}
+             =\frac{\partial}{\partial j}(\frac{-2uk}{(u^2+k^2+j^2)^2})
+             =\frac{2uk(2(u^2+k^2+j^2)2j)}{(u^2+k^2+j^2)^4}
+             =\frac{8ukj}{(u^2+k^2+j^2)^3}
+             \]
+             En particular
+             \[
+             \frac{8xyz}{(x^2+y^2+z^2)^3}
+             =\frac{\partial f_1}{\partial z \partial y}
+             =\frac{\partial f_2}{\partial x \partial z}
+             =\frac{\partial f_3}{\partial x \partial y}
+             \]
+             Esto es, $\mathbf{F}$ es un campo gradiente, por lo que su
+             rotacional es 0.
+             \[\nabla \times \mathbf{F} = (0, 0, 0)\]
+             Y la divergencia es
+             \begin{align*}
+                \nabla \cdot \mathbf{F} &= \frac{\partial f_1}{\partial x}
+                +\frac{\partial f_2}{\partial y}
+                +\frac{\partial f_3}{\partial z}\\
+                &= \frac{-x^2+y^2+z^2}{(x^2+y^2+z^2)^2}
+                +\frac{-y^2+x^2+z^2}{(x^2+y^2+z^2)^2}
+                +\frac{-z^2+x^2+y^2}{(x^2+y^2+z^2)^2}\\
+                &= \frac{x^2+y^2+z^2}{(x^2+y^2+z^2)^2}\\
+                &= \frac{1}{x^2+y^2+z^2}
+             \end{align*}
             }
-            \end{enumerate}            
+            \end{enumerate}
         }
 
         % Ejercicio 3
         \item {
             Determinar si $\mathbf{F}$ es campo vectorial conservativo y en su caso encuentre el campo escalar $f$
-            
+
             \begin{enumerate}
             \item{
 				$\mathbf{F} (x,y) = (2x\cos y - y\cos x, -x^2\sin y -\sin x)$
-				
+
 			\color{azul}
             % Respuesta
-           
-
+            Primero, hay que verificar que las derivadas cruzadas sean iguales.
+            \begin{align*}
+                \frac{\partial}{\partial y}(2x\cos y-y\cos x)=-2x\sin y -\cos x\\
+                \frac{\partial}{\partial x}(-x^2\sin y -\sin x)=-2x\sin y -\cos x
+            \end{align*}
+            Por lo que $\mathbf{F}$ sí es un campo vectorial conservativo.\\
+            Ahora hay que encontrar su primitiva.
+            \begin{align*}
+                \int{2x\cos y-y\cos x dx} &= x^2\cos y - y\sin x + k(y)\\
+                \int{ -x^2\sin y -\sin x dy} &= x^2\cos y - y\sin x + k(x)
+            \end{align*}
+            Entonces, $k(y) = k(x) = 0$.\\
+            Por lo que el campo escalar es $x^2\cos y - y\sin x$.
             }
-            
+
             \item{
             	$\mathbf{F} (x,y,z) = (2xy, x^2 + 2yz, y^2)$
-           
+
            \color{azul}
             % Respuesta
-            
+            Hay que verificar que las derivadas cruzadas sean iguales
+            \begin{align*}
+                &\frac{\partial(2xy)}{\partial y \partial z} = 0 \\
+                &\frac{\partial(x^2 + 2yz)}{\partial x \partial z} = 0 \\
+                &\frac{\partial(y^2)}{\partial x \partial y} = 0 \\
+            \end{align*}
+            Por lo que sí es conservativo.\\
+            Hay que encontrar la primitiva.
+            \begin{align*}
+                \int{2xy dx} &= x^2y + k_1(y, z)\\
+                \int{x^2 + 2yz dy} &= x^2y + y^2z + k_2(x, z)\\
+                \int{y^2 dz} &= y^2z + k_3(x, y)
+            \end{align*}
+            Y de estas integrales podemos observar que
+            \begin{align*}
+                k_1(y, z) &= y^2z \\
+                k_2(x, z) &= 0 \\
+                k_3(x, y) &= x^2y
+            \end{align*}
+            Y entonces el campo escalar correspondiente es $x^2y + y^2z$.
             }
-            \end{enumerate}           
+            \end{enumerate}
         }
 
         % Ejercicio 4
         \item {
            Calcular $\int_{C} \mathbf{F} \cdot d \mathbf{l}$
-            
+
             \begin{enumerate}
             \item{
 				$\mathbf{F} (x,y,z) = (\sin x,\cos y,xz)$ y la parametrización $\sigma (t) = (t^3,-t^2,t)$
-				
+
 			\color{azul}
             % Respuesta
-           
+
 
             }
-            
+
             \item{
             	$\mathbf{F} (x,y) = (x-y,xy)$ y $C$ el arco de círculo $x^2 + y^2 = 4$ que se recorre en sentido antihorario de $(2,0)$ a $(0,-2)$
-           
+
            \color{azul}
             % Respuesta
-            
+
             }
-            \end{enumerate}           
+            \end{enumerate}
         }
 
         % Ejercicio 5
         \item {
             Calcular $\iint_{S} f dS$
-            
+
             \begin{enumerate}
             \item{
 				$f(x,y,z) = x^2y + z^2$ y $S$ la parte del cilindro $x^2 + y^2 = 9$ que está entre los planos $z=0$ y $z=2$
-				
+
 			\color{azul}
             % Respuesta
-           
+
 
             }
-            
+
             \item{
             	$f(x,y,z) = x^2yz$ y $S$ la parte del plano $z = 1 + 2x + 3y$ que está arriba del rectángulo $[0,3] \times [0,2]$
-           
+
            \color{azul}
             % Respuesta
-            
+
             }
             \end{enumerate}
 
-            
+
 	    }
 
         % Ejercicio 6
         \item {
            Calcular $\iint_{S} \mathbf{F} \cdot d \mathbf{S}$
-            
+
             \begin{enumerate}
             \item{
 				$\mathbf{F} (x,y,z) = (0,y,-z)$ y $S$ consiste en el paraoloide $y = x^2 + z^2$, $0 \leq y \leq 1$, y el disco $x^2 + z^2 \leq 1$, $y = 1$
-				
+
 			\color{azul}
             % Respuesta
-           
+
 
             }
-            
+
             \item{
             	$\mathbf{F} (x,y) = (xze^y,-xze^y,z)$ y $S$ la parte del plano $x + y+ z = 1$ en el primer octante con orientación hacia arriba
-           
+
            \color{azul}
             % Respuesta
-            
-            }
-            \end{enumerate} 
 
-            
+            }
+            \end{enumerate}
+
+
         }
 
         % Ejercicio 7
@@ -185,20 +521,20 @@
 
             \color{azul}
             % Respuesta
-           
+
         }
-        
+
          % Ejercicio 9
         \item {
             Usar propiedades del rotacional para mostrar que
             \[
                 \int_C {{\left(f \nabla g + g \nabla f\right)}\,d\mathbf{l}} = 0
             \]
-         
+
 
             \color{azul}
             % Respuesta
-           
+
         }
     \end{enumerate}
 \end{document}
