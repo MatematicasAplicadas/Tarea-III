@@ -511,34 +511,38 @@
             Usar el teorema de Stokes para evaluar $\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S}$, donde $\mathbf{F}(x,y,z) =(x^2y^3z,\sin(xyz),xyz)$ y $S$ es la parte del cono $y^2 = x^2 + z^2$ que está entre los planos $y = 0$ y $y = 3$ orientada en dirección positiva del eje Y.
 
             \color{azul}
-            Sabemos que S es una curva orientable y cerrada por como está definida. También podemos ver que las primeras derivadas de F son continuas y que D(la parametrización de la superficie en $\mathbb{R}^2$) es una región elemental, por lo tanto podemos aplicar el teorema de Stokes.
-            
+            Sabemos que la frontera de S es una curva orientable y cerrada por
+            como está definida. También podemos ver que las primeras derivadas
+            de F son continuas y que D(la parametrización de la superficie en
+            $\mathbb{R}^2$) es una región elemental, por lo tanto podemos
+            aplicar el teorema de Stokes.
+
             El teorema dice que:
-            
+
             $\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S} = \int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l}$
-            
+
             La curva $\mathcal{C}$ será la frontera de la superficie S y la parametrizaremos del siguiente modo: $\sigma(t) = (\cos(t), 3, \sin(t))$ con $t \in [0, 2\pi]$
-            
+
             Ahora obtenemos $d\mathbf{l} = (dx, dy, dz) = (-\sin(t), 0, \cos(t))$
-            
+
         Componemos F con $\sigma(t)$ y tenemos que:
-        
-        $\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = \int_{0}^{2\pi} (27\cos^2(t)\sin^2(t) + 0 + 3\cos^2(t)\sin(t)) dt$
-        
+
+        $\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = \int_{0}^{2\pi} (-27\cos^2(t)\sin^2(t) + 0 + 3\cos^2(t)\sin(t)) dt$
+
         Resolvemos la integral dividendola en dos:
-        
-         $\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = \int_{0}^{2\pi} 27\cos^2(t)\sin^2(t) dt +   \int_{0}^{2\pi}3\cos^2(t)\sin(t)dt$
-         
+
+         $\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = \int_{0}^{2\pi} -27\cos^2(t)\sin^2(t) dt +   \int_{0}^{2\pi}3\cos^2(t)\sin(t)dt$
+
          Usamos la identidad trigonométrica $\cos^2(t)\sin^2(t) = \frac{1 - \cos(4t)}{8}$ y tenemos que:
          \begin{align*}
-                \int_{0}^{2\pi}{27\cos^2(t)\sin^2(t)dt}
-                &= \frac{27}{8} \int_{0}^{2\pi}{(1 - \cos(4t)) dt}
-                = \frac{27}{8} \Big(\int_{0}^{2\pi}{(1)dt }  - \int_{0}^{2\pi}{\cos(4t)dt}\Big)\\[0.3cm]
-                &= \frac{27}{8}\Big((t - \frac{1}{4} \sin(4t))\Big |_{0}^{2\pi}\Big)
-                = \frac{27}{8} (2\pi - 0)
-               	= \frac{27}{4}\pi
+                \int_{0}^{2\pi}{-27\cos^2(t)\sin^2(t)dt}
+                &= -\frac{27}{8} \int_{0}^{2\pi}{(1 - \cos(4t)) dt}
+                = -\frac{27}{8} \Big(\int_{0}^{2\pi}{(1)dt }  - \int_{0}^{2\pi}{\cos(4t)dt}\Big)\\[0.3cm]
+                &= -\frac{27}{8}\Big((t - \frac{1}{4} \sin(4t))\Big |_{0}^{2\pi}\Big)
+                = -\frac{27}{8} (2\pi - 0)
+               	= -\frac{27}{4}\pi
             \end{align*}
-         
+
 		Resolvemos la otra integral:
 		\begin{align*}
                 &\int_{0}^{2\pi}{3\cos^2(t)\sin(t)dt}
@@ -547,14 +551,14 @@
                	= -3 (0)
                	= 0
             \end{align*}
-		
+
 		De ahí, tenemos que:
-		$\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = \frac{27}{4}\pi + 0 = \frac{27}{4}\pi$
-		
+		$\int_{\mathcal{C}} \mathbf{F} \cdot d\mathbf{l} = -\frac{27}{4}\pi + 0 = -\frac{27}{4}\pi$
+
 		Por lo tanto:
-		
-		$\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S} = \frac{27}{4}\pi$
-		
+
+		$\iint_{S} \nabla \times \mathbf{F} \cdot d\mathbf{S} = -\frac{27}{4}\pi$
+
         }
 
         % Ejercicio 8
@@ -563,24 +567,24 @@
 
             \color{azul}
             Sabemos que el hiperboloide es una región elemental por como está definido. Podemos ver que S (la frontera de la hiperboloide), es cerrada y orientable. También podemos ver que las primeras derivadas de F son continuas, por lo tanto podemos aplicar el teorema de Gauss.
-            
+
             El teorema dice que:
-            
+
             $\iint_{S} \mathbf{F} \cdot d\mathbf{S} = \iiint_{W} \nabla \cdot \mathbf{F} d\mathbf{V}$
-            
+
             Obtenemos $\nabla \cdot \mathbf{F} = 3x^2y - 2x^2y - x^2y = 0$
-            
+
             Entonces tenemos que:
-            
+
              $\iint_{S} \mathbf{F} \cdot d\mathbf{S} = \iiint_{W} \ 0 \  d\mathbf{V}$
-             
+
             No necesitamos parametrizar W para ver que el resultado de esa integral será cero.
-            
+
             Por lo tanto:
-            
+
             $\iint_{S} \mathbf{F} \cdot d\mathbf{S} = 0$
-            
-            
+
+
 
         }
 
@@ -590,24 +594,35 @@
             \[
                 \int_{\mathcal{C}} {{\left(f \nabla g + g \nabla f\right)} \cdot d\mathbf{l}} = 0
             \]
-
-
             \color{azul}
-            
-            Supongamos que $\mathcal{C}$ es una curva orientable y cerrada, que fg tiene sus primeras derivadas continuas y que $\mathcal{C}$ es la frontera de una superficie orientable donde su dominio es una región elemental con frontera cerrada. Tomando las condiciones válidas, vemos que cumple el teorema de Stokes. Si no cumpliera estas condiciones, la demostración no se podría realizar.
-                    
+            Esta afirmación es falsa. Veamos un contraejemplo.\\
+            Sea $g(x, y, z) = f(x, y, z) = x$ y $c(t) = (t, 0, 0) t\in [0, 1]$ la
+            curva parametrizada.
+            Entonces la integral es
+            \begin{align*}
+                \int_{\mathcal{C}}{x(1, 0, 0) + x(1, 0, 0)dl} &= \int_{\mathcal{C}}{(2x, 0, 0)dl}
+                = \int_{0}^{1}{(2t, 0, 0)\cdot (1, 0, 0)dt} \\
+                &= \int_{0}^{1}{2tdt}  = t^{2} \Big |_{0}^{1} = 1^{2} - 0^{2} \\
+                &= 1 \neq 0
+            \end{align*}
+            Pero supongamos que $\mathcal{C}$ es una curva orientable y cerrada,
+            que $fg$ tiene sus primeras derivadas continuas y que la
+            superficie englobada por $\mathcal{C}$ es orientable y su dominio es
+            una región elemental con frontera cerrada.\\
+            Tomando las condiciones válidas, vemos que cumple el teorema de Stokes.
+
             \begin{align*}
                 \int_{\mathcal{C}} {{\left(f \nabla g + g \nabla f\right)}\ \cdot d\mathbf{l}}
-				&= \int_{\mathcal{C}} \left(f \left(\frac{\partial}{\partial x} g,\ \ \frac{\partial}{\partial y}g,\ \ \frac{\partial}{\partial z}g\right) + g \left(\frac{\partial}{\partial x} f,\ \ \frac{\partial}{\partial y}f,\ \ \frac{\partial}{\partial z}f\right)\right) \cdot d\mathbf{l} &\mathrm{(Definicion \ nabla)}\\  
-				&=\int_{\mathcal{C}}\left(f\frac{\partial}{\partial x} g + g\frac{\partial}{\partial x} f ,\ \ f \frac{\partial}{\partial y} g + g\frac{\partial}{\partial y} f ,\ \ f \frac{\partial}{\partial z} g + g \frac{\partial}{\partial z} f \right) \cdot d\mathbf{l} & \mathrm{(Agrupando)}\\              
+				&= \int_{\mathcal{C}} \left(f \left(\frac{\partial}{\partial x} g,\ \ \frac{\partial}{\partial y}g,\ \ \frac{\partial}{\partial z}g\right) + g \left(\frac{\partial}{\partial x} f,\ \ \frac{\partial}{\partial y}f,\ \ \frac{\partial}{\partial z}f\right)\right) \cdot d\mathbf{l} &\mathrm{(Definicion \ nabla)}\\
+				&=\int_{\mathcal{C}}\left(f\frac{\partial}{\partial x} g + g\frac{\partial}{\partial x} f ,\ \ f \frac{\partial}{\partial y} g + g\frac{\partial}{\partial y} f ,\ \ f \frac{\partial}{\partial z} g + g \frac{\partial}{\partial z} f \right) \cdot d\mathbf{l} & \mathrm{(Agrupando)}\\
                 &= \int_{\mathcal{C}}\left(\frac{\partial}{\partial x} fg,\ \ \frac{\partial}{\partial y}fg,\ \ \frac{\partial}{\partial z}fg\right) \cdot d\mathbf{l} &\mathrm{(Regla \ del \  Producto)}\\
 &=\int_{\mathcal{C}}(\nabla(fg)) \cdot d\mathbf{l} &\mathrm{(Definicion \ nabla)}\\
 &=\iint_{S} (\nabla \times \nabla(fg)) \cdot dS &\mathrm{(Teorema \ de \ Stokes)}\\
 &=\iint_{S} 0 \cdot dS &\mathrm{(Propiedades \ del \ Rotacional)}\\
 &= 0 &\mathrm{(Definicion \ Integral)}
             \end{align*}
-            
-            
+
+
 
         }
     \end{enumerate}
